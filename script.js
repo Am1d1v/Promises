@@ -12,8 +12,8 @@ const req = new Promise(function(resolve, reject){
       price: 1000
     };
   
-    //resolve(product);
-      reject();
+    resolve(product);
+     // reject();
   }, 2000);
 });
 
@@ -32,6 +32,8 @@ req.then((product) => {
   });
 }).catch(() => {
   console.error("Error");
-})
+}).finally(() => {
+    console.log("Final");
+});
 
 
