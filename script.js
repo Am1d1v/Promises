@@ -18,17 +18,18 @@ const req = new Promise(function(resolve, reject){
 });
 
 req.then((product) => {
-  const req2 = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
      product.status = "ordered";
 
      resolve(product);
     }, 3000);
+    }).then((data) => {
+      data.modify = true;
+      return data;
+  }).then((data) => {
+    console.log(data);
   });
-
-    req2.then((data) => {
-      console.log(data);
-    });
 
 });
 
