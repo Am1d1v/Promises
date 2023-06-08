@@ -37,3 +37,38 @@ req.then((product) => {
 });
 
 
+
+
+const test = ((time) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+});
+
+/*
+
+test(2000).then(() => {
+  console.log(`2000 ms`);
+});
+
+test(6000).then(() => {
+  console.log(`6000 ms`);
+});
+
+*/
+
+/*
+
+Promise.all([test(2000), test(6000)], test(3000)).then(() => {
+  console.log("All")
+});
+
+*/
+
+
+
+Promise.race([test(2000), test(3000)]).then(() => {
+  console.log("All")
+});
